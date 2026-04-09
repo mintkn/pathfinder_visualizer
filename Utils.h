@@ -76,35 +76,18 @@ void draw_line(TDT4102::AnimationWindow& win, int x, int& y, std::string text, T
 
 inline const std::vector<KeyboardKey> keys =
 {
-    KeyboardKey::R, KeyboardKey::BACKSPACE, KeyboardKey::S,
+    KeyboardKey::R, KeyboardKey::BACKSPACE,
     KeyboardKey::ESCAPE, KeyboardKey::ENTER,
-    KeyboardKey::NUMPAD_PLUS, KeyboardKey::NUMPAD_MINUS,
-    KeyboardKey::I, KeyboardKey::L, KeyboardKey::G,
-    KeyboardKey::KEY_1, KeyboardKey::KEY_2, KeyboardKey::KEY_3,
-    KeyboardKey::KEY_4, KeyboardKey::KEY_5, KeyboardKey::KEY_6,
-    KeyboardKey::KEY_7, KeyboardKey::KEY_8, KeyboardKey::KEY_9,
+    KeyboardKey::NUMPAD_PLUS, KeyboardKey::NUMPAD_MINUS
 };
 
 inline const std::map<KeyboardKey, std::string> key_names = {
     {KeyboardKey::R,           "R"},
     {KeyboardKey::BACKSPACE,   "BACKSPACE"},
-    {KeyboardKey::S,           "S"},
     {KeyboardKey::ENTER,       "ENTER"},
     {KeyboardKey::NUMPAD_PLUS, "NUMPAD_PLUS"},
     {KeyboardKey::NUMPAD_MINUS,"NUMPAD_MINUS"},
-    {KeyboardKey::I,           "I"},
-    {KeyboardKey::L,           "L"},
-    {KeyboardKey::G,           "G"},
-    {KeyboardKey::KEY_1,       "1"},
-    {KeyboardKey::KEY_2,       "2"},
-    {KeyboardKey::KEY_3,       "3"},
-    {KeyboardKey::KEY_4,       "4"},
-    {KeyboardKey::KEY_5,       "5"},
-    {KeyboardKey::KEY_6,       "6"},
-    {KeyboardKey::KEY_7,       "7"},
-    {KeyboardKey::KEY_8,       "8"},
-    {KeyboardKey::KEY_9,       "9"},
-    {KeyboardKey::ESCAPE,      "ESCAPE"},
+    {KeyboardKey::ESCAPE,      "ESCAPE"}
 };
 
 

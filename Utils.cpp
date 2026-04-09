@@ -36,11 +36,8 @@ void key_to_func(Grid& grid, Grid& backup, TDT4102::AnimationWindow& win, Keyboa
     {
         case KeyboardKey::R:        execute_action(Action::Reset,     grid, backup, win); grid.set_current_demo(-1); break;
         case KeyboardKey::BACKSPACE: execute_action(Action::Undo,      grid, backup, win); break;
-        case KeyboardKey::S:        execute_action(Action::Save,       grid, backup, win); break;
         case KeyboardKey::NUMPAD_PLUS:  execute_action(Action::GridPlus,  grid, backup, win); break;
         case KeyboardKey::NUMPAD_MINUS: execute_action(Action::GridMinus, grid, backup, win); break;
-        case KeyboardKey::L:        execute_action(Action::Load,       grid, backup, win); break;
-        case KeyboardKey::G:        execute_action(Action::Generate,   grid, backup, win); break;
 
         case KeyboardKey::ENTER:
             backup = grid;
