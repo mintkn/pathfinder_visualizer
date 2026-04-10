@@ -7,13 +7,13 @@
 
 struct Node
 {
-    int f;
-    int g;
-    int h;
-    int r;
-    int c;
+    int total_cost;
+    int path_cost;
+    int heuristic_cost;
+    int row;
+    int col;
 
-    bool operator>(const Node& other) const { return f > other.f; }
+    bool operator>(const Node& other) const { return total_cost > other.total_cost; }
 };
 
 // Abstrakt basisklasse for søkealgoritmer

@@ -5,7 +5,7 @@
 enum class CellState
 {
     Empty,      // White  - kan gå
-    Wall,       // Yellows   - kan ikke gå
+    Wall,       // Yellow   - kan ikke gå
     Start,      // Green - BFS start
     End,        // Red   - BFS slutt
     Visited,    // Blue   - BFS besøkt

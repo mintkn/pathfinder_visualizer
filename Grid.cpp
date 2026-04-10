@@ -218,8 +218,7 @@ void Grid::generate_maze()
     if((start->first % 2) != (end->first % 2) || (start->second % 2) != (end->second % 2))
         throw std::runtime_error("Start og End må begge ligge på oddetall- eller partallsposisjoner (samme paritet)");
 
-    
-        for(int r = 0; r < rows; r++)
+    for(int r = 0; r < rows; r++)
     {
         for(int c = 0; c < cols; c++)
         {
@@ -234,7 +233,7 @@ void Grid::generate_maze()
     auto free_neighbors = [&](std::pair<int, int> pos)
     {
         std::vector<std::pair<int, int>> result;
-        for(const std::pair<int, int> dir : direc_gen)
+        for(const auto& dir : direc_gen)
         {
             int nr = pos.first + dir.first;
             int nc = pos.second + dir.second;

@@ -44,7 +44,7 @@ extern std::vector<int> g_path_lengths;
 // PANEL LAYOUT
 inline constexpr int  FONT_SIZE = 16;
 inline constexpr int  NEW_LINE = 22;
-inline constexpr int  PANEL_DEADPSACE_SMALL = 4;
+inline constexpr int  PANEL_DEADSPACE_SMALL = 4;
 inline constexpr int  PANEL_DEADSPACE_LARGE = 10;
 inline constexpr int  WIDGET_WIDTH = PANEL_WIDTH - 2 * PANEL_DEADSPACE_LARGE; // widget-bredde (460)
 
@@ -71,7 +71,7 @@ extern const std::vector<Maze> demo_mazes;
 
 void key_to_func(Grid& grid, Grid& backup, TDT4102::AnimationWindow& win, KeyboardKey s, PathfinderBase& p);
 void draw_panel(TDT4102::AnimationWindow& win, const Grid& grid, const PathfinderBase& p);
-void draw_line(TDT4102::AnimationWindow& win, int x, int& y, std::string text, TDT4102::Color c = COLOR_TXT);
+void draw_line(TDT4102::AnimationWindow& win, int x, int& y, const std::string& text, TDT4102::Color c = COLOR_TXT);
 
 
 inline const std::vector<KeyboardKey> keys =

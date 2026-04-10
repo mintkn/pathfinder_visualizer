@@ -134,16 +134,16 @@ bool GreedyFinder::find_path(Grid& grid, TDT4102::AnimationWindow& win)
         Node current = pq.top();
         pq.pop();
 
-        if(grid.get_cell(current.r, current.c) == CellState::Empty)
+        if(grid.get_cell(current.row, current.col) == CellState::Empty)
         {
-            grid.set_cell(current.r, current.c, CellState::Visited);
+            grid.set_cell(current.row, current.col, CellState::Visited);
             wait(grid, win);
         }
 
         for(std::pair<int, int> dir : direc)
         {
-            int nr = current.r + dir.first;
-            int nc = current.c + dir.second;
+            int nr = current.row + dir.first;
+            int nc = current.col + dir.second;
 
             if(nr < 0 || nr >= ROWS || nc < 0 || nc >= COLS) continue;
             if(visited[nr][nc]) continue;
@@ -151,7 +151,7 @@ bool GreedyFinder::find_path(Grid& grid, TDT4102::AnimationWindow& win)
             CellState check = grid.get_cell(nr, nc);
             if(check == CellState::Wall) continue;
 
-            parent[nr][nc] = {current.r, current.c};
+            parent[nr][nc] = {current.row, current.col};
             if(check == CellState::End)
             {
                 animate_path(nr, nc, start, grid, win);
@@ -200,16 +200,16 @@ bool ASTARFinder::find_path(Grid& grid, TDT4102::AnimationWindow& win)
         Node current = pqa.top();
         pqa.pop();
 
-        if(grid.get_cell(current.r, current.c) == CellState::Empty)
+        if(grid.get_cell(current.row, current.col) == CellState::Empty)
         {
-            grid.set_cell(current.r, current.c, CellState::Visited);
+            grid.set_cell(current.row, current.col, CellState::Visited);
             wait(grid, win);
         }
 
         for(std::pair<int, int> dir : direc)
         {
-            int nr = current.r + dir.first;
-            int nc = current.c + dir.second;
+            int nr = current.row + dir.first;
+            int nc = current.col + dir.second;
 
             if(nr < 0 || nr >= ROWS || nc < 0 || nc >= COLS) continue;
             if(visited[nr][nc]) continue;
@@ -217,7 +217,7 @@ bool ASTARFinder::find_path(Grid& grid, TDT4102::AnimationWindow& win)
             CellState check = grid.get_cell(nr, nc);
             if(check == CellState::Wall) continue;
 
-            parent[nr][nc] = {current.r, current.c};
+            parent[nr][nc] = {current.row, current.col};
             if(check == CellState::End)
             {
                 animate_path(nr, nc, start, grid, win);
@@ -226,7 +226,7 @@ bool ASTARFinder::find_path(Grid& grid, TDT4102::AnimationWindow& win)
 
             visited[nr][nc] = true;
             int h = heuristic(nr, nc, end_r, end_c);
-            int g = current.g + 1;
+            int g = current.path_cost + 1;
             int f = g + h;
             pqa.push({f, g, h, nr, nc});
         }
@@ -270,8 +270,10 @@ bool RandomFinder::find_path(Grid& grid, TDT4102::AnimationWindow& win)
     visited[start->first][start->second] = true;
 
     std::pair<int,int> current = *start;
+    const int max_steps = ROWS * COLS * 10;
+    int steps = 0;
 
-    while(true)
+    while(steps++ < max_steps)
     {
         auto neighbors = free_neighbors(current);
 
@@ -313,5 +315,6 @@ bool RandomFinder::find_path(Grid& grid, TDT4102::AnimationWindow& win)
         q.push(next);
         current = next;
     }
+    return false;
 }
 

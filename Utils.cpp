@@ -30,8 +30,6 @@ void execute_action(Action a, Grid& grid, Grid& backup, TDT4102::AnimationWindow
 
 void key_to_func(Grid& grid, Grid& backup, TDT4102::AnimationWindow& win, KeyboardKey s, PathfinderBase& p)
 {
-    std::cout << "Tast ble trykket: " << key_names.at(s) << '\n';
-
     switch(s)
     {
         case KeyboardKey::R:        execute_action(Action::Reset,     grid, backup, win); grid.set_current_demo(-1); break;
@@ -101,7 +99,7 @@ void MouseHandler::determine_func(Grid& grid, TDT4102::AnimationWindow& win)
 }
 
 
-void draw_line(TDT4102::AnimationWindow& win, int x, int& y, std::string text, TDT4102::Color c)
+void draw_line(TDT4102::AnimationWindow& win, int x, int& y, const std::string& text, TDT4102::Color c)
 {
     win.draw_text({x, y}, text, c, FONT_SIZE);
     y += NEW_LINE;
@@ -118,7 +116,7 @@ void draw_panel(TDT4102::AnimationWindow& win, const Grid& grid, const Pathfinde
 
     // VENSTRE: INFO
     draw_line(win, x_1, y_1, "=== INFO ===", TDT4102::Color::yellow);
-    y_1 += PANEL_DEADPSACE_SMALL;
+    y_1 += PANEL_DEADSPACE_SMALL;
 
     std::string demo_str = (grid.get_current_demo() == -1) ? "ingen" : std::to_string(grid.get_current_demo());
 
@@ -140,7 +138,7 @@ void draw_panel(TDT4102::AnimationWindow& win, const Grid& grid, const Pathfinde
 
     // HØYRE: PATHLENGTH
     draw_line(win, x_2, y_2, "=== PATHLENGTH ===", TDT4102::Color(255, 220, 80));
-    y_2 += PANEL_DEADPSACE_SMALL;
+    y_2 += PANEL_DEADSPACE_SMALL;
 
     for(int i = 0; i < static_cast<int>(g_algo_names.size()); i++)
     {
