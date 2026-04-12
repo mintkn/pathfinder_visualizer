@@ -89,8 +89,8 @@ int main()
     TDT4102::Button plus_btn ({WX + 355, BTN_Y_START + 193}, B2W, BH, "GRID +");
 
     // ANIMASJON - checkbox for instant og slider for animasjonshastighet
-    TDT4102::CheckBox instant_anim({WX, BTN_Y_START + 250}, WW, BH, "Instant");
-    TDT4102::Slider   anim_time   ({WX+77, BTN_Y_START + 252}, WW-68, 40, 0, 100, 10, 1);
+    TDT4102::CheckBox instant_anim({WX,       BTN_Y_START + 290}, 100,      BH, "Instant");
+    TDT4102::Slider   anim_time   ({WX + 110, BTN_Y_START + 290}, WW - 110, 40, 0, 100, 10, 1);
 
 
     // FARGER - setter farger på knappene

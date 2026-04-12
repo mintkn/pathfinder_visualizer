@@ -23,7 +23,7 @@ void execute_action(Action a, Grid& grid, Grid& backup, TDT4102::AnimationWindow
 
 // VINDU - konstanter for vindusstørrelse og posisjon
 inline constexpr int WIN_WIDTH = 1500;
-inline constexpr int WIN_HEIGHT = 810;
+inline constexpr int WIN_HEIGHT = 870;
 inline constexpr int WIN_X = 50;
 inline constexpr int WIN_Y = 50;
 inline constexpr int DEADSPACE = 20;           // kant-margin rundt gridet
