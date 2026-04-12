@@ -6,6 +6,7 @@ TDT4102::CheckBox::CheckBox(TDT4102::Point location, unsigned int width, unsigne
     label{std::move(label)} {}
 
 void TDT4102::CheckBox::update(nk_context *context) {
+    
 
     struct nk_style* s = &context->style;    
     nk_style_push_color(context, &s->checkbox.text_normal, labelColor);
@@ -16,6 +17,7 @@ void TDT4102::CheckBox::update(nk_context *context) {
     nk_style_push_style_item(context, &s->checkbox.active, nk_style_item_color(checkBoxColorActive));
 
     if (nk_checkbox_label(context, label.data(), &isSelected_)) {
+
         fire();
     }
     

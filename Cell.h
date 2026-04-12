@@ -2,6 +2,8 @@
 
 #include <string>
 
+// Alle mulige tilstander en celle i gridet kan ha
+// Bruker enum class for å unngå at de blandes med vanlige int-verdier
 enum class CellState
 {
     Empty,      // White  - kan gå
@@ -13,6 +15,8 @@ enum class CellState
 };
 
 
+// Konverterer en bokstav fra fil til riktig CellState
+// Brukes når vi laster inn demo-labyrinten fra en hardkodet vektor
 inline CellState char_to_state(const char& state)
 {
     if(state == 'W') return CellState::Empty;
@@ -21,9 +25,11 @@ inline CellState char_to_state(const char& state)
     if(state == 'R') return CellState::End;
     if(state == 'C') return CellState::Visited;
     if(state == 'P') return CellState::Path;
-    return CellState::Empty;
+    return CellState::Empty; // standard hvis vi ikke kjenner igjen tegnet
 }
 
+// Gjør det motsatte - konverterer CellState tilbake til en bokstav
+// Trengs når vi lagrer gridet til fil
 inline char state_to_char(CellState s)
 {
     switch(s)
@@ -35,5 +41,5 @@ inline char state_to_char(CellState s)
         case CellState::Visited: return 'C';
         case CellState::Path:    return 'P';
     }
-    return 'W';
+    return 'W'; // burde aldri skje, men kompilatoren klager uten dette
 }
