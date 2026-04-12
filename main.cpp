@@ -43,9 +43,9 @@ int main()
     // ALGORITME-VALG 
     TDT4102::DropdownList algo_list({WX, WIDGET_Y_START}, WW, 35, g_algo_names);
     algo_list.setCallback([&](){
+        backup = grid;
         for(int i = 0; i < (int)g_algo_names.size(); i++)
             if(g_algo_names[i] == algo_list.getSelectedValue()) algo_idx = i;
-        grid = backup;
     });
 
     TDT4102::DropdownList dem_mazes({WX, WIDGET_Y_START+55}, WW, 35, d_mazes);

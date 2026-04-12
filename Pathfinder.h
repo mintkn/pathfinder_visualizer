@@ -54,7 +54,7 @@ class GreedyFinder : public PathfinderBase
 {
     public:
         bool find_path(Grid& grid, TDT4102::AnimationWindow& win) override;
-        std::string name() const override { return "Greedy Best-First"; }
+        std::string name() const override { return "Greedy"; }
 };
 
 class ASTARFinder : public PathfinderBase
